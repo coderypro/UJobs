@@ -1,5 +1,13 @@
 # UJobs Changelog
 
+## Version 1.1.1 (February 23, 2026)
+
+### 🐛 Bug Fixes & Improvements
+- Minor optimizations and code cleanup
+- Enhanced stability for Folia support
+
+---
+
 ## Version 1.1.0 (February 23, 2026)
 
 ### 🎨 New Features
@@ -10,6 +18,7 @@
 - **Size & Slot Customization** - Configure GUI size and specific slot positions for all items
 - **Background Slot Control** - Choose which slots to fill with background items (border-only, checkered, etc.)
 - **Navigation Slot Control** - Place navigation buttons in custom positions
+- **Folia Support** - Full compatibility with Folia's regionized threading model
 
 ### 🛠️ Utilities Added
 - **ColorUtil.java** - Utility class for handling hex colors and Minecraft color codes
@@ -24,6 +33,12 @@
   - Player head support
   - Item flags and attributes
   - Enchantment glint
+  
+- **SchedulerUtil.java** - Folia-compatible scheduler wrapper
+  - Automatic detection of Folia vs Bukkit environment
+  - Regional entity-based scheduling for Folia
+  - Backward compatibility with Bukkit/Spigot/Paper
+  - Thread-safe task execution
 
 ### 🔒 GUI Protection Enhanced
 - Configurable GUI protection system in config.yml:
@@ -31,6 +46,16 @@
   - `gui_protection.cancel_clicks` - Prevent item taking
   - `gui_protection.cancel_shift_clicks` - Block shift-clicking
   - `gui_protection.cancel_drag` - Prevent dragging items
+
+### ⚙️ Folia Compatibility
+- **Automatic Platform Detection** - Plugin automatically detects if running on Folia
+- **Regional Scheduling** - All tasks are scheduled regionally when running on Folia
+- **Entity-Based Tasks** - Player-related tasks are bound to entity regions for safety
+- **Backward Compatible** - Works seamlessly on Bukkit, Spigot, and Paper servers
+- **All Schedulers Converted**:
+  - UJobsPlugin - Leaderboard update timer
+  - BossBarManager - Boss bar display timers
+  - JobExpUtils - Level-up animation timer
 
 ### 📝 Configuration Updates
 - **config.yml** enhancements:
